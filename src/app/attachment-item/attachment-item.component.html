@@ -1,0 +1,20 @@
+<td>{{index + 1}}</td>
+<td>{{attachment.name}}</td>
+<td>{{getExtension()}}</td>
+<td>
+    <audio *ngIf="getExtension() === 'mp3'" controls>
+            <source [src]="attachment.src" type="audio/mpeg">
+    </audio>
+    <video *ngIf="getExtension() === 'mp4'"  width="320" height="240" controls>
+            <source [src]="attachment.src" type="video/mp4">
+    </video>
+    <div *ngIf="getExtension() === 'docx'" style="cursor: pointer; font-size:30px">
+            <a [href]="attachment.src"><i class="far fa-file-word"></i></a>
+    </div>
+    <div *ngIf="getExtension() === 'pdf'"  style="cursor: pointer; font-size:30px">
+            <a [href]="attachment.src"><i  class="far fa-file-pdf"></i></a>
+    </div>
+    <div class="imgShow" *ngIf="getExtension() === 'jpg' || getExtension() === 'png'" >
+            <a [href]="attachment.src"><img  [src] = "attachment.src" width="320px"></a>
+    </div>
+</td>
